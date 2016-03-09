@@ -1,0 +1,1270 @@
+@font-face {
+    font-family: 'cooper_hewittbold';
+    src: url('../fonts/cooperhewittbold-webfont.eot');
+    src: url('../fonts/cooperhewittbold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/cooperhewittbold-webfont.woff2') format('woff2'),
+         url('../fonts/cooperhewittbold-webfont.woff') format('woff'),
+         url('../fonts/cooperhewittbold-webfont.ttf') format('truetype'),
+         url('../fonts/cooperhewittbold-webfont.svg#cooper_hewittbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'cooper_hewittbook';
+    src: url('../fonts/cooperhewittbook-webfont.eot');
+    src: url('../fonts/cooperhewittbook-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/cooperhewittbook-webfont.woff2') format('woff2'),
+         url('../fonts/cooperhewittbook-webfont.woff') format('woff'),
+         url('../fonts/cooperhewittbook-webfont.ttf') format('truetype'),
+         url('../fonts/cooperhewittbook-webfont.svg#cooper_hewittbook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'cooper_hewittheavy';
+    src: url('../fonts/cooperhewittheavy-webfont.eot');
+    src: url('../fonts/cooperhewittheavy-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/cooperhewittheavy-webfont.woff2') format('woff2'),
+         url('../fonts/cooperhewittheavy-webfont.woff') format('woff'),
+         url('../fonts/cooperhewittheavy-webfont.ttf') format('truetype'),
+         url('../fonts/cooperhewittheavy-webfont.svg#cooper_hewittheavy') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'cooper_hewittlight';
+    src: url('../fonts/cooperhewittlight-webfont.eot');
+    src: url('../fonts/cooperhewittlight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/cooperhewittlight-webfont.woff2') format('woff2'),
+         url('../fonts/cooperhewittlight-webfont.woff') format('woff'),
+         url('../fonts/cooperhewittlight-webfont.ttf') format('truetype'),
+         url('../fonts/cooperhewittlight-webfont.svg#cooper_hewittlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'cooper_hewittmedium';
+    src: url('../fonts/cooperhewittmedium-webfont.eot');
+    src: url('../fonts/cooperhewittmedium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/cooperhewittmedium-webfont.woff2') format('woff2'),
+         url('../fonts/cooperhewittmedium-webfont.woff') format('woff'),
+         url('../fonts/cooperhewittmedium-webfont.ttf') format('truetype'),
+         url('../fonts/cooperhewittmedium-webfont.svg#cooper_hewittmedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'cooper_hewittsemibold';
+    src: url('../fonts/cooperhewittsemibold-webfont.eot');
+    src: url('../fonts/cooperhewittsemibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/cooperhewittsemibold-webfont.woff2') format('woff2'),
+         url('../fonts/cooperhewittsemibold-webfont.woff') format('woff'),
+         url('../fonts/cooperhewittsemibold-webfont.ttf') format('truetype'),
+         url('../fonts/cooperhewittsemibold-webfont.svg#cooper_hewittsemibold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'cooper_hewittsemibold_italic';
+    src: url('../fonts/cooperhewittsemibolditalic-webfont.eot');
+    src: url('../fonts/cooperhewittsemibolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/cooperhewittsemibolditalic-webfont.woff2') format('woff2'),
+         url('../fonts/cooperhewittsemibolditalic-webfont.woff') format('woff'),
+         url('../fonts/cooperhewittsemibolditalic-webfont.ttf') format('truetype'),
+         url('../fonts/cooperhewittsemibolditalic-webfont.svg#cooper_hewittsemibold_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'cooper_hewittthin';
+    src: url('../fonts/cooperhewittthin-webfont.eot');
+    src: url('../fonts/cooperhewittthin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/cooperhewittthin-webfont.woff2') format('woff2'),
+         url('../fonts/cooperhewittthin-webfont.woff') format('woff'),
+         url('../fonts/cooperhewittthin-webfont.ttf') format('truetype'),
+         url('../fonts/cooperhewittthin-webfont.svg#cooper_hewittthin') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'cooper_hewittthin_italic';
+    src: url('../fonts/cooperhewittthinitalic-webfont.eot');
+    src: url('../fonts/cooperhewittthinitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/cooperhewittthinitalic-webfont.woff2') format('woff2'),
+         url('../fonts/cooperhewittthinitalic-webfont.woff') format('woff'),
+         url('../fonts/cooperhewittthinitalic-webfont.ttf') format('truetype'),
+         url('../fonts/cooperhewittthinitalic-webfont.svg#cooper_hewittthin_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'cooper_hewittbold_italic';
+    src: url('../fonts/ooperhewittbolditalic-webfont.eot');
+    src: url('../fonts/ooperhewittbolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ooperhewittbolditalic-webfont.woff2') format('woff2'),
+         url('../fonts/ooperhewittbolditalic-webfont.woff') format('woff'),
+         url('../fonts/ooperhewittbolditalic-webfont.ttf') format('truetype'),
+         url('../fonts/ooperhewittbolditalic-webfont.svg#cooper_hewittbold_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'cooper_hewittbook_italic';
+    src: url('../fonts/ooperhewittbookitalic-webfont.eot');
+    src: url('../fonts/ooperhewittbookitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ooperhewittbookitalic-webfont.woff2') format('woff2'),
+         url('../fonts/ooperhewittbookitalic-webfont.woff') format('woff'),
+         url('../fonts/ooperhewittbookitalic-webfont.ttf') format('truetype'),
+         url('../fonts/ooperhewittbookitalic-webfont.svg#cooper_hewittbook_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'cooper_hewittheavy_italic';
+    src: url('../fonts/operhewittheavyitalic-webfont.eot');
+    src: url('../fonts/operhewittheavyitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/operhewittheavyitalic-webfont.woff2') format('woff2'),
+         url('../fonts/operhewittheavyitalic-webfont.woff') format('woff'),
+         url('../fonts/operhewittheavyitalic-webfont.ttf') format('truetype'),
+         url('../fonts/operhewittheavyitalic-webfont.svg#cooper_hewittheavy_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'robotoregular';
+    src: url('../fonts/Roboto-Regular-webfont.eot');
+    src: url('../fonts/Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-Regular-webfont.woff') format('woff'),
+         url('../fonts/Roboto-Regular-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-Regular-webfont.svg#robotoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'heuristica-italic';
+    src: url('../fonts/heuristica-italic.eot');
+    src: url('../fonts/heuristica-italic.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/heuristica-italic.woff') format('woff'),
+         url('../fonts/heuristica-italic.ttf') format('truetype'),
+         url('../fonts/heuristica-italic.svg#robotoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'heuristica-regular';
+    src: url('../fonts/heuristica-regular.eot');
+    src: url('../fonts/heuristica-regular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/heuristica-regular.woff') format('woff'),
+         url('../fonts/heuristica-regular.ttf') format('truetype'),
+         url('../fonts/heuristica-regular.svg#robotoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src:url('../fonts/icomoon.eot?oz29xu');
+    src:url('../fonts/icomoon.eot?oz29xu#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?oz29xu') format('truetype'),
+        url('../fonts/icomoon.woff?oz29xu') format('woff'),
+        url('../fonts/icomoon.svg?oz29xu#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-facebook:before {
+    content: "\e900";
+    font-size: 16px;
+}
+.icon-instagram:before {
+    content: "\e901";
+}
+.icon-vimeo:before {
+    content: "\e902";
+}
+
+body{
+    font-family: 'cooper_hewittmedium';
+}
+
+
+a, a:hover {
+    color: #555;
+    cursor: pointer;
+    font-style: normal;
+    text-decoration: none;
+}
+
+p {
+    color: #555;
+    font-family: 'robotoregular';
+    letter-spacing: -0.02em;
+}
+
+hr{
+    border-top: 1px solid #9d9d9d; 
+}
+
+p>a, p>a:focus, p>a:hover, p>a:active{
+    border-bottom: solid 1px black;
+    color: black ;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.h1, h1 {
+    font-size: 26px;
+}
+
+.h3, h3 {
+    font-size: 22px;
+    line-height: 1.3;
+}
+
+.informacion-adicional{
+    /*font-size: 0.9em;*/
+    line-height: 2em;
+}
+.servicio-adicional h3, .informacion-adicional h3 {
+    font-size: 18px;
+    line-height: 20px;
+}
+.servicio-adicional{
+    font-size: 1em;
+    line-height: 1.5em;
+}
+.texto-adicional{
+    min-height: 90px;
+    margin-bottom: 0px;
+}
+.precio-adicional{
+    min-height: 90px;
+}
+.col-md-5.text-center.m-top-30 {
+    float: none;
+    display: inline-table;
+}
+itulo h3 {
+    font-size: 1.2em;
+    line-height: 1.5em;
+    text-align: justify;
+    text-transform: uppercase;
+}
+.parrafo p {
+    font-size: 1em;
+    line-height: 1.3em;
+}
+
+.parrafo a {
+    font-size: 0.9em;
+    letter-spacing: -0.01em;
+    margin-top: 10px;    
+}
+.parrafo a:focus, .parrafo a:hover {
+    text-decoration: none;
+}
+
+.descripcion-slider>h3 {
+    color: white;
+    font-size: 17px;
+}
+
+.carousel-control.right {
+    background-image:none;
+}
+.carousel-control.left {
+    background-image:none;
+}
+.fondo {
+    background-color: black;
+    color: white;
+}
+
+.item-imagen {
+    position: relative;
+}
+.item-imagen-texto {
+    position: absolute;
+    z-index: 2;
+    top: 42%;
+    right: 26%;
+    vertical-align: middle;
+    color: white;
+    font-family: 'cooper_hewittlight';
+}
+.item-imagen-texto>h2 {
+    font-family: 'cooper_hewittlight';
+    font-size: 3em;
+}
+
+.item-titulo-centro-imagen {
+    position: absolute;
+    z-index: 2;
+    top: 150px;
+    bottom: 0;
+    left: 39%;
+    width: auto;
+    color: #fff;
+}
+
+.izq-form {
+    margin-right: 0px;
+    padding-right: 0px;
+}
+.der-form {
+    margin-left: 0px;
+    padding-left: 0px;    
+}
+.item-titulo-centro-texto {
+    position: absolute;
+    z-index: 3;
+    top: 190px;
+    left: 35%;
+    width: 200px;
+    vertical-align: middle;
+    color: white;
+    font-family: 'cooper_hewittlight';
+}
+.item-titulo-centro-texto.casa{
+    top: 210px;
+}
+.item-titulo-centro-texto.house{
+    top: 215px;
+}
+.item-titulo-centro-texto.house>h2 {
+    margin-top: 3px;
+}
+.item-titulo-centro-texto>h2 {
+    font-family:'heuristica-italic';
+    font-style: italic;
+    border: none;
+    font-size: 16px;
+}
+.item-titulo-centro-texto>h3 {
+    font-size: 33px;
+    margin: 0px;
+}
+
+
+
+.item-titulo-derecho-imagen {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: auto;
+    color: #fff;
+}
+.item-titulo-derecho-texto {
+    position: absolute;
+    z-index: 3;
+    top: 25%;
+    right: 14%;
+    vertical-align: middle;
+    color: white;
+    font-family: 'cooper_hewittlight';
+}
+.item-titulo-izquierdo-imagen {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    color: #fff;
+}
+.item-titulo-izquierdo-texto {
+    position: absolute;
+    z-index: 3;
+    top: 25%;
+    left: 12%;
+    vertical-align: middle;
+    color: white;
+    font-family: 'cooper_hewittlight';
+}
+.item-titulo>h2 {
+    border-bottom: solid 1px;
+    font-size: 2.5em;
+}
+
+.p-15 {
+    padding: 15px;
+}
+.caja-index {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.m-top-10 {
+    margin-top: 10px;
+}
+.m-top-30 {
+    margin-top: 30px;
+}
+.m-top-50 {
+    margin-top: 50px;
+}
+.m-top-80 {
+    margin-top: 80px;
+}
+.m-top-100 {
+    margin-top: 100px;
+}
+
+.abajo {
+    position: absolute;
+    z-index: 5;
+    bottom: 5px;
+    width: 100%;
+}
+
+.carousel-caption {
+    top: 25%;
+    display: block;
+    /* width: 80%; */
+    margin: 0 auto;
+}
+.titulo-kai {
+    display: block;
+    margin: 0 auto;
+}
+.subtitulo-kai {
+    font-family: 'cooper_hewittsemibold';
+    font-size: 30px;
+    margin-top: 60px;
+}
+.logo-kai {
+    /*margin-top: -30px;*/
+}
+.kai {
+    margin-right: 5px;
+    /*margin-left: 50px;*/
+    padding-top: 10px;
+}
+
+.navbar.hidden {
+  transform: translateY(-105%);
+  -webkit-transform: translateY(-105%);
+}
+
+.navbar-nav li a .menu{
+    padding: 20px 16px;
+    margin: 0px; 
+    color: black;
+}
+.navbar-nav li .menu-social {
+    margin-left: 7px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+    background-color: black;
+    color: white;
+}
+
+.nav .open>a:focus, .nav .open>a:hover {
+    background-color: black;
+    color: white;
+}
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+    background-color: black;
+    color: white;
+}
+
+.linea {
+    height: 1px;
+    width: 5%;
+    background: white;
+    display: inline-block;
+    margin: 0 15px 7px 15px;
+}
+.descripcion-slider {
+    display: inline-block;
+    max-width: 70%;
+    font-size: 1.7em;
+}
+.menu {
+    background-color: white;
+    color: black;
+    margin: 0;
+    transition: transform 5000s ease 0s;
+    -moz-transition: transform 5000s ease 0s;
+    -webkit-transition: transform 5000s ease 0s;
+    -o-transition: transform 5000s ease 0s;
+}
+.linea-separacion {
+    border-left: #9E9E9E solid 1px;
+    width: 2px;
+    height: 26px;
+    float: left;
+    display: inline-block;
+    margin: 15px 2px 0px 2px;
+}
+.linea-separacion-pie {
+    border-left: #555 solid 1px;
+    width: 2px;
+    height: 120px;
+    float: left;
+    display: inline-block;
+}
+
+
+.btn-color {
+    background-color: white;
+    color: black;
+}
+h3.titulo-casa.text-center {
+    font-size: 16px;
+}
+.pie-social {
+    background-color: #EEEEEE;
+    color: black;
+    text-align: center;
+}
+.ico-social, .ico-social:focus, .ico-social:hover {
+    padding: 3%;
+    text-decoration: none;
+    height: auto;
+}
+
+.pie-menu {
+    background-color: black;
+    color: white;
+    padding-top: 4%;
+}
+.subtitulo-kai
+a.pie-titulo {
+    color: white;
+    font-size: 0.9em;
+    display: block;
+    font-family: 'cooper_hewittbook';
+}
+a.pie-subttitulo {
+    color: #555;
+    font-size: 0.9em;
+    display: block;
+    font-family: 'cooper_hewittbook';
+}
+a.pie-subttitulo:hover {
+    color: white;
+}
+.indicador-slider{
+    width: 1%;
+    left: 127%;
+    bottom: 33%;
+}
+
+.entre-seccion{
+    margin: 35px;
+}
+
+#imagen_slide{
+    background: url(../images/00-home.jpg) 50% 0 no-repeat fixed;
+    min-height: 700px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1920px;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.titulo-movil {
+/*    background: black;
+    color: white;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    vertical-align: middle;
+    height: auto;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    font-family: 'cooper_hewittlight';
+    text-align: center;*/
+}
+.titulo-movil>h2 {
+/*    font-family: 'cooper_hewittlight';
+    font-size: 4em;*/
+}
+.submenu {
+    background: #f6f6f6;
+    width: 100%;
+    display: block;
+    font-family: 'cooper_hewittlight';
+    padding: 10px 20px 20px 20px;
+}
+
+.submenu h1 {
+    font-size: 40px;
+}
+.submenu p {
+    font-family: serif;
+    font-style: italic;
+    font-size: 1.2em;
+}
+.submenu a{
+    margin-right: 10px;
+    margin-left: 10px;
+    border: 0;
+    font-size: 15px;
+    font-family: 'heuristica-italic';
+    font-style: italic;
+    font-weight: normal;
+}
+
+.submenu a:hover {
+    font-weight: normal;
+    font-style: underline;
+}
+.banner {
+    background: no-repeat 50% 0 fixed;
+    min-height: 490px;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.selector {
+    height: 45px;
+    margin-right: 0;
+    padding-top: 0;
+    background: #eee url(../images/down.jpg) no-repeat right top;
+    line-height: 47px;
+    border: 0;
+       -moz-appearance: none;
+    -webkit-appearance: none;
+            appearance: none;
+
+}
+.selector:hover, .selector:focus{
+    box-shadow: none;
+}
+.row.recuadros {
+    width: 1000px;
+    display: block;
+    margin: 0 auto;
+}
+.texto {
+    height: 45px;
+    margin-right: 0;
+    padding-top: 0;
+    background: #eee;
+    line-height: 47px;
+    border: 0;
+}
+.texto:hover, .texto:focus{
+    box-shadow: none;
+}
+.calendario {
+    height: 45px;
+    margin-right: 0;
+    padding-top: 0;
+    background: #eee url(../images/calendario.jpg) no-repeat right top;
+    line-height: 47px;
+    border: 0;
+       -moz-appearance: none;
+    -webkit-appearance: none;
+            appearance: none;
+}
+.calendario:hover, .calendario:focus{
+    box-shadow: none;
+}
+.horario {
+    height: 45px;
+    margin-right: 0;
+    padding-top: 0;
+    background: #eee url(../images/horario.jpg) no-repeat right top;
+    line-height: 47px;
+    border: 0;
+       -moz-appearance: none;
+    -webkit-appearance: none;
+            appearance: none;
+}
+.horario:hover, .horario:focus{
+    box-shadow: none;
+}
+
+.caja-texto {
+    background: #eee;
+    border: 0;
+}
+.caja-texto:hover, .caja-texto:focus{
+    box-shadow: none;
+}
+.boton {
+    background: black;
+    color: white;
+    border: 0;
+    height: 45px;
+    min-width: 100px;
+    vertical-align: middle;
+    line-height: 35px;
+}
+.boton:hover, .boton:focus{
+    box-shadow: none;
+    color: white;
+}
+
+.boton-espacio {
+    background: black;
+    color: white;
+    border: 0;
+    height: 35px;
+    min-width: 150px;
+    vertical-align: middle;
+    line-height: 25px;
+}
+.boton-espacio:hover, .boton-espacio:focus{
+    box-shadow: none;
+    color: white;
+}
+.texto-espacio {
+    padding: 20px;
+}
+.texto-espacio h3 {
+    font-family: 'cooper_hewittsemibold';
+    font-size: 1.6em;
+}
+.casa {
+    line-height: 0.9;
+}
+
+.contenedor-espacio {
+    background: #f7f7f7;
+}
+.contenedor-tabla {
+    display: table;
+}
+.contenido-tabla {
+    display: table-row;
+}
+.item-tabla {
+    display: table-cell;
+}
+
+.item-casa {
+    background: black;
+    color: white;
+}
+.imagen-casa {
+    background: #f1f4f9;
+    width: 100%;
+}
+.disable {
+    display: none;
+}
+.titulo-casa {
+    font-family: 'cooper_hewittlight';
+    margin: 6px 0 10px 0;
+    padding: 10px 0 10px 0;
+    color:white;
+}
+
+.item-adicional {
+    background: black;
+    color: white;
+    min-height: 378px;
+}
+.imagen-adicional {
+    background: #f1f4f9;
+    width: 100%;
+    padding: 20px 15px 10px 15px;
+}
+.titulo-adicional {
+    font-family: 'robotoregular';
+    margin: 10px 0 10px 0;
+    padding: 10px 0 10px 0;
+    color: black;
+}
+.texto-adicional {
+    text-align: center;
+    /*font-size: 0.8em;*/
+    min-height: 105px;
+}
+
+.precio-adicional {
+    padding: 10px 20px;
+    text-align: center;
+    /*font-size: 0.8em;*/
+}
+
+.precio-adicional p {
+    color: white;
+}
+.item-noticia {
+    font-family: 'robotoregular';
+}
+.imagen-noticia {
+    background: #f1f4f9;
+    width: 100%;
+}
+.fecha-noticia {
+    font-size: 1em;
+    margin: 10px 0 10px 0;
+    padding: 10px 0 10px 0;
+}
+.titulo-noticia {
+    margin: 10px 0 10px 0;
+    padding: 10px 0 10px 0;
+    text-transform: uppercase;
+    font-size: 1.4em;
+    font-weight: bold;
+    line-height: 1.5em;
+}
+.item-proyecto {
+    background: white;
+    color: black;
+}
+.imagen-proyecto {
+    background: #f1f4f9;
+    width: 100%;
+}
+.titulo-proyecto {
+    font-family: 'robotoregular';
+    margin: 10px 0 10px 0;
+    padding: 10px 0 10px 0;
+    font-size: 1.2em;
+    text-align: left;
+}
+
+.fecha-noticia-small {
+    font-size: 0.9em;
+    margin: 5px 0 5px 0;
+    padding: 5px 0 0 0;
+}
+.titulo-noticia-small  {
+    margin: 5px 0 5px 0;
+    padding: 5px 0 5px 0;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-weight: bold;
+    line-height: 1.5em;
+}
+.parrafo-noticia-small {
+    font-size: 1em;
+    line-height: 1.1em;
+    text-align: justify;
+    display: inline-block;
+}
+.mas-noticia {
+    font-size: 1.2em;
+    line-height: 1.4em;
+    text-align: center;
+    display: block;
+    color: black;
+    margin: 50px 0 0 10px;
+    height: 50px;
+    font-weight: normal;
+}
+.mas-noticia a, .mas-noticia a:hover{
+    text-decoration: underline;
+    color: black; 
+}
+
+.pagination>li>a, .pagination>li>span {
+    border: none;
+    color: black; 
+}
+
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    background-color: black;
+    border:none; ;
+}
+
+.navbar-toggle .icon-bar {
+    background-color: black;
+}
+
+.zoom{
+    transition: width 2s, height 2s, transform 2s;
+    -moz-transition: width 2s, height 2s, -moz-transform 2s;
+    -webkit-transition: width 2s, height 2s, -webkit-transform 2s;
+    -o-transition: width 2s, height 2s,-o-transform 2s;
+    }
+.zoom:hover{
+    transform : scale(1.2);
+    -moz-transform : scale(1.2);      /* Firefox */
+    -webkit-transform : scale(1.2);   /* Chrome - Safari */
+    -o-transform : scale(1.2);        /* Opera */
+    }
+.contenedor-imagen {
+    width:100%;
+    height:180%;
+    overflow:hidden;
+}
+.fijo {
+    position: fixed;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: -2;
+    margin-top: 200px;
+}
+.encima {
+    height: 100%;
+    max-width: 100%;
+    display: block;
+    padding-top: 620px;
+}
+.fondo-color {
+    background: white;
+    height: 100%;
+    padding-bottom: 100px;
+}
+
+.copy{
+    color: #555;
+    font-size: 1em;
+    display: block;
+    font-family: 'cooper_hewittbook';
+    margin-top: 5%;
+    margin-bottom: 10px;
+}
+.navbar-right {
+    margin-right: -15px;
+}
+.menu-social>li>a{
+    padding: 15px 5px;
+}
+
+.container-menu {
+    margin: 0 auto;
+}
+@media (min-width: 1200px){
+
+    .container-menu {
+        width: 787px;
+        display: block;
+        margin: 0 auto;
+
+    }
+
+    .item-titulo-centro-imagen, .item-titulo-centro-texto {
+        left: 42%;
+    }
+    .navbar-nav>li>a {
+        padding: 15px 16px;
+        font-size: 12px;
+    }
+
+    .dropdown-menu>li>a {
+        padding: 15px 20px;
+    }
+
+}
+@media (min-width: 992px){
+
+
+    .item-titulo-centro-imagen, .item-titulo-centro-texto {
+        left: 42%;
+    }
+    .pie-menu hr {
+        display: none;
+    }
+    .imagen-mobil {
+        display: none;
+    }
+
+}
+@media (min-width: 768px){
+    .container-menu {
+        width: 802px;
+        margin: 0 auto;
+    }
+    .carousel-caption {
+        right:0;
+        left: 0;
+        padding-bottom: 30px;
+    }
+    .movil-idioma {
+        display: none;
+    }
+    .navbar-right {
+        margin-right: -5px;
+    }
+    .navbar-nav>li>a {
+        padding: 15px 13px;
+        font-size: 12px;
+    }
+}
+
+
+@media (max-width: 1200px){
+.linea {
+    display: none;
+}
+.subtitulo-kai {
+   font-size: 250%;
+}
+
+.item-titulo-centro-imagen, .item-titulo-centro-texto {
+    left: 39%;
+}
+.row.recuadros {
+width: auto;
+}
+}
+@media (max-width: 992px){
+.subtitulo-kai {
+   font-size: 200%;
+}
+.container-menu {
+    width: 665px;
+    margin: 0 auto;
+}
+
+.izq-form {
+    margin-right: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.der-form {
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+img.media-object {
+    height: 310px;
+}
+.item-titulo-centro-imagen, .item-titulo-centro-texto {
+    left: 35%;
+}
+ 
+.navbar-nav {
+    margin-bottom: 0;
+}
+.navbar-nav li a {
+    padding-left: 7px;
+    padding-right: 7px;
+}
+.descripcion-slider {
+    display: none;
+}
+
+.imagen-espacio {
+    width: 100%;
+    margin:20px 0;
+}
+.derecha {
+    margin-left: 25%;
+    width: 76%;
+}
+.izquierda {
+    margin-right: 25%;
+    width: 76%;
+}
+.item-imagen {
+    margin-top: 30px;
+}
+.col-md-12.p-15{
+    display: none;
+}
+
+.escritorio-idioma {
+    display: none;
+}
+.item-titulo-derecho-texto {
+    right: 9%;
+}
+.item-imagen-texto {
+    top: 35%;
+    right: 35%;
+}
+.item-imagen-texto>h2 {
+    border-bottom: solid 1px;
+    font-size: 3.17em;
+}
+.footer.pie-menu{
+    text-align: center;
+}
+.linea-separacion-pie,.linea-separacion, a.pie-subttitulo, hr.pie-menu {
+    display: none;
+}
+.imagen-escritorio {
+    display: none;
+}
+
+}
+@media (max-width: 768px){
+.container-menu {
+    width: auto;
+    margin: 0 auto;
+}
+.subtitulo-kai {
+   font-size: 180%;
+}
+.dropdown.navbar-right.escritorio-idioma, .entre-linea {
+    display: none;
+}
+.dropdown-menu>li>a, .navbar-collapse.collapse.in{
+    background: black;
+    color: white;
+}
+.navbar-nav li a {
+    padding: 5px;
+    color: white;
+}
+
+a.fb {
+    margin-top: -2px;
+}
+.item-titulo-centro-imagen, .item-titulo-centro-texto {
+    left: 30%;
+}
+.kai {
+    margin-left: 0px;
+}
+.item-imagen {
+    height: 50%;
+} 
+.derecha {
+    margin: 0;
+    width: 100%;
+}
+.izquierda {
+    margin: 0;
+    width: 100%;
+}
+
+.titulo-escritorio {
+    display: none;
+}
+
+
+
+.item-titulo.item-titulo-derecho-texto {
+    right: 38%;
+}
+
+.item-titulo.item-titulo-izquierdo-texto {
+    left: 45%;
+}
+.menu-social {
+    display: inline-block;
+    width: 90px;
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+.social {
+    margin-left: 30%;
+}
+.navbar-nav.pull-right.navbar-right {
+    width: 80px;
+    margin: 15px 10px 0 0;
+}
+
+.abajo {
+    display: none;
+}
+
+}
+
+@media (max-width: 600px){
+.carousel-caption {
+    top: 0; 
+}
+.logo-kai {
+    margin-top: 30px;
+}
+.item-titulo-centro-imagen {
+    left: 21%;
+}
+.item-titulo-centro-texto {
+    left: 20%;
+}
+.text-center h1 {
+    font-size: 30px;
+}
+.item-imagen-texto {
+    right: 25%;
+}
+.item-imagen, .item-imagen.m-top-30 {
+    margin: 0px;
+}
+.item-titulo.item-titulo-derecho-texto {
+    right: 35%;
+}
+
+.item-titulo.item-titulo-izquierdo-texto {
+    left: 35%;
+}
+.social {
+    margin-left: 15%;
+}
+
+}
+@media (max-width: 400px){
+
+.item-imagen-texto {
+    right: 10%;
+}
+.social {
+    margin-left: 8%;
+}
+
+}
+
+
+input[type=file] {
+    padding-top: 10px;
+}
+.texto {
+    line-height: 0px;
+}

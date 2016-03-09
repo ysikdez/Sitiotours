@@ -1,0 +1,205 @@
+body{
+	color: #5a5a5a;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:14px;
+	line-height: auto;
+	margin: 0;
+}
+
+.accordion-titulo{
+	padding: 5px 10px;
+	margin-left: 0px;
+}
+.boton-sec{
+	margin: 10px;
+	min-height: 14px;
+	padding: 5px;
+}
+.contorno{
+	margin-bottom: 15px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 20px;
+}
+.logo{
+	margin: 20px 3px;
+}
+.red{
+	background-color: red;
+}
+
+.maps0{
+	background-color: #FFDC7F;
+}
+.maps1{
+	background-color: #FFEB33;
+}
+.maps2{
+	background-color: #FFF8AA;
+}
+.maps3{
+	background-color: #FFF0BF;
+}
+.maps4{
+	background-color: #FFF3F3;
+}
+.maps5{
+	background-color: #EFE3FF;
+}
+.maps6{
+	background-color: #E7ECFF;
+}
+.maps7{
+	background-color: #F6FFDF;
+}
+
+.icono{
+	padding: 0px 3px;
+	margin: 0px 2px;
+}
+.esp-ico{
+	margin: 0px;
+	padding: 7px;
+}
+
+.ima-prin{
+	max-width: 175px;
+	display: inline-block;
+}
+.ico-prin{
+	max-width: 60px;
+	display: inline-block;
+}
+.logo-caja{
+	max-width: 100px;
+	display: inline-block;
+}
+input.texto{
+	min-width: 573px;
+	margin-bottom: 0px;
+}
+
+p.fecha{
+	min-width: 75px;
+	text-align: right;
+	display: inline-block;
+	margin: 0px 5px 0px 0px;
+}
+p.grupo{
+	min-width: 43px;
+	text-align: right;
+	display: inline-block;
+	margin: 0px 5px 0px 0px;
+}
+p.ocupante{
+	min-width: 43px;
+	text-align: right;
+	display: inline-block;
+	margin: 0px 5px 0px 0px;
+}
+p.estado{
+	min-width: 30px;
+	text-align: right;
+	display: inline-block;
+	margin: 0px 5px 0px 0px;
+}
+
+
+p.activo{
+	min-width: 20px;
+	text-align: right;
+	display: inline-block;
+	margin: 0px 5px 0px 0px;
+}
+p.duracion{
+	min-width: 140px;
+	text-align: right;
+	display: inline-block;
+	margin: 0px 5px 0px 0px;
+}
+p.numero{
+	min-width: 25px;
+	text-align: right;
+	display: inline-block;
+	margin: 0px 5px 0px 0px;
+}
+p.oferta{
+	min-width: 20px;
+	text-align: right;
+	display: inline-block;
+	margin: 0px 5px 0px 0px;
+}
+p.personas{
+	min-width: 25px;
+	text-align: right;
+	display: inline-block;
+	margin: 0px 5px 0px 0px;
+}
+p.precio{
+	min-width: 60px;
+	text-align: right;
+	display: inline-block;
+	margin: 0px 1px 0px 0px;
+}
+p.cuarto{
+	min-width: 100px;
+	text-align: right;
+	display: inline-block;
+	margin: 0px 1px 0px 0px;
+}
+.hora{
+	max-width: 100px;
+}
+.itinerario{
+	background-color: #ECFFC0;
+}
+.itinerario:hover{
+	background-color: #FFD974;
+}
+.jerarquia{
+	max-width:30px;
+}
+.opcion-mini{
+	max-width: 50px;
+}
+.opcion-small{
+	min-width: 165px;
+}
+.checkbox.inline.opcion-small:nth-child(3n+1){
+	margin-left: 0px;
+	/*background-color: red;*/
+}
+.opcion-medio{
+	min-width: 173px;
+}
+.checkbox.inline.opcion-medio:nth-child(3n+1){
+	margin-left: 0px;
+	/*background: red;*/
+}
+
+
+.atras{
+	margin: 10px;
+	min-height: 14px;
+	padding: 5px;
+}
+
+.destino-caja{
+  margin: 3px;
+  padding: 2px 7px;
+  background-color: #ECFFC0;
+  border: 1px solid #e3e3e3;
+  text-align: justify;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.destino-caja:hover{
+  background-color: #FFD974;
+}
+
+

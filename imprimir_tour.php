@@ -1,0 +1,894 @@
+<?php
+include ("admin/config.php");
+include ("admin/functions.php");
+
+// $_SESSION['URL'] = "http://".$SERVER_NAME.$PHP_SELF."?".$QUERY_STRING; 
+session_start();
+if(isset($_SESSION['carro'])){$carro=$_SESSION['carro'];}else{ $carro=false; }
+
+
+//Pagina
+$id = $_GET["id"];
+
+$tipo = $_GET["tipo"];
+$seccion = "tours";
+$url_pagina = $id;
+
+
+//con la url encontrar el id
+$dato_url_abu = "SELECT id_pagina FROM pagina WHERE url_pagina='$seccion'";
+$dato_url_abu = mysql_db_query($dbname, $dato_url_abu); 
+while ($fila = mysql_fetch_array($dato_url_abu)){ 
+
+	$id_pag = $fila["id_pagina"];
+
+	$dato_url_id_pad = "SELECT id_pagina FROM pagina WHERE url_pagina='$tipo' AND per_pagina=$id_pag";
+	$dato_url_id_pad = mysql_db_query($dbname, $dato_url_id_pad); 
+	while ($filb = mysql_fetch_array($dato_url_id_pad)){ 
+
+		$id_pagi = $filb["id_pagina"]; 
+
+		$dato_url_id_tour = "SELECT id_pagina FROM pagina WHERE url_pagina='$url_pagina' AND per_pagina=$id_pagi";
+		$dato_url_id_tour = mysql_db_query($dbname, $dato_url_id_tour); 
+		if ($filc = mysql_fetch_array($dato_url_id_tour)){ 
+
+			$id = $filc["id_pagina"]; 
+		}
+	}
+}
+
+
+
+$dato_pagina = "SELECT * FROM (pagina LEFT JOIN tour ON pagina.id_pagina = tour.id_pagina) WHERE pagina.id_pagina='$id'";
+$dato_pagina = mysql_db_query($dbname, $dato_pagina); 
+if ($row = mysql_fetch_array($dato_pagina)){ 
+
+	$id_idioma = $row["id_idioma"];
+	$per = $row["per_pagina"];
+
+	$des = $row["des_pagina"];
+	$key = $row["key_pagina"];
+	$tit = $row["tit_pagina"];
+	$url = $row["url_pagina"];
+
+	$map = $row["map_pagina"];
+
+	$tit_pos = $row["tit_pos_pagina"];
+	$tit_com = $row["tit_com_pagina"];
+
+	$logo = $row["logo_pagina"];
+	$alt_logo = $row["alt_logo_pagina"];
+	$des_logo = $row["des_logo_pagina"];
+
+//Tour
+
+	$id_tour = $row["id_tour"];
+	$id_agencia = $row["id_agencia"];
+	$cod_tour = $row["cod_tour"];
+	$tipo_tour = $row["tipo_tour"];
+	$dif_tour = $row["dif_tour"];
+	$dur_dia_tour = $row["dur_dia_tour"];
+	$dur_noc_tour = $row["dur_noc_tour"];
+	$des_tour = $row["des_tour"];
+}
+
+//Agencia
+$dato_agencia = "SELECT pagina.id_pagina ,agencia.id_agencia ,pagina.tit_pos_pagina ,pagina.url_pagina 
+					FROM (agencia LEFT JOIN pagina ON agencia.id_pagina = pagina.id_pagina)
+					WHERE
+					agencia.id_agencia='$id_agencia'";
+
+$dato_agencia = mysql_db_query($dbname, $dato_agencia); 
+if ($row = mysql_fetch_array($dato_agencia)){ 
+
+	$id_pag_agen = $row["id_pagina"];
+	$tit_pag_agen = $row["tit_pos_pagina"];
+
+	$url_pag = pagUrl($dbname,$id_pag_agen);$pagurl="";
+	$url_pag_agen = substr($url_pag, 0, -1);
+}
+
+//Padre
+$dato_padre = "SELECT * FROM pagina WHERE id_pagina='$per'";
+$dato_padre = mysql_db_query($dbname, $dato_padre); 
+if ($row = mysql_fetch_array($dato_padre)){ 
+
+	$id_pad = $row["id_pagina"];
+	$per_pad = $row["per_pagina"];
+	$tit_pos_pad = $row["tit_pos_pagina"];
+	$ico_pag_pad = $row["ico_pagina"];
+
+}
+
+//Abuelo
+$dato_abuelo = "SELECT * FROM pagina WHERE id_pagina='$per_pad'";
+$dato_abuelo = mysql_db_query($dbname, $dato_abuelo); 
+if ($row = mysql_fetch_array($dato_abuelo)){ 
+
+	$id_abu = $row["id_pagina"];
+	$url_abu = $row["url_pagina"];
+	$per_abu = $row["per_pagina"];
+	$tit_pos_abu = $row["tit_pos_pagina"];
+	$ico_pag_abu = $row["ico_pagina"];
+
+}
+
+
+//Configuracion
+$dato_config = "SELECT * FROM site WHERE id_site='1'";
+$dato_config = mysql_db_query($dbname, $dato_config); 
+if ($row = mysql_fetch_array($dato_config)){ 
+
+	$url_site = $row["url_site"];
+	$mail_site = $row["mail_site"];
+	$auto_site = $row["auto_site"];
+	$copy_site = $row["copy_site"];
+
+}
+
+//idioma
+$dato_pagina = "SELECT * FROM idioma WHERE id_idioma='$id_idioma'";
+$dato_pagina = mysql_db_query($dbname, $dato_pagina); 
+if ($row = mysql_fetch_array($dato_pagina)){ $abre = $row["abre_idioma"];}
+
+?>
+<!DOCTYPE html>
+<html lang="<?=$abre?>">
+	<head>
+		<base href="<?=$url_site?>" />
+		<meta charset="utf-8">
+		<meta http-equiv="Cache-Control" content="no-cache" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="author" content="<?=$auto_site?>" />
+		<meta name="copyright" content="<?=$copy_site?>" />
+		<!-- Descripción: entre 155 a 160 caracteres -->
+		<meta name="description" content="<?=$des?>" />
+		<meta name="distribution" content="Global" />
+		<meta name="google-site-verification" content="" /> <!-- -------- -->
+		<!-- Keywords: entre 300 caracteres -->
+		<meta name="keywords" content="<?=$key?>" />
+		<meta name="MSSmartTagsPreventParsing" content="TRUE" />
+		<meta name="owner" content="<?=$auto_site?>" />
+		<meta name="rating" content="General" />
+		<meta name="reply-to" content="<?=$mail_site?>" />
+		<meta name="revisit-After" content="1 days" />
+		<meta name="robots" content="all" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link href="/css/bootstrap.css" rel="stylesheet">
+		<link href="/css/imprimir.css" rel="stylesheet">
+		<link href="/img/ico-sitiotours.png" rel="shortcut icon">
+		
+		<script src="/js/script.js"></script>
+		<script src="/js/jquery.js"></script>
+		<script src="/js/bootstrap.js"></script>
+
+		<!-- Titulo de la pagina: entre 60 a 70 caracteres -->		
+		<title><?=$tit?> :: Imprimir :: Sitiotours.com </title>
+	</head>
+
+	<body  onLoad="window.print()">
+		<section class="container marketing margen-top">
+			<div class="row text-center">	
+				<a class="brand margen-top" href="#">
+					<div itemscope itemtype="http://schema.org/ImageObject">
+						<figure>
+							<img src="/img/sitio-logo.png" itemprop="contentURL" alt="Logo Sitiotours.com" width="100" height="58">
+						</figure>
+						<meta itemprop="datePublished" content="2014-07-06">
+						<figcaption itemprop="name" class="text-center">sitiotours.com</figcaption>
+					</div>
+				</a>
+				<br>
+				<article class="text-center margin-top">
+
+					<div>
+						<h1 class="inline-block pull-left"><small><i class="<?=$ico_pag_abu?> ico-titulo"></i> </small> </h1> 
+						<h1 class="inline-block pull-left"> <small> <?=$tit_pos_abu?> »</small></h1>
+						<div class="inline-block pull-left text-left titulo">
+							<h1> <small> <?=$tit_pos_pad?></small></h1>
+						</div>
+						<h1 class="inline-block pull-left"> <small> » </small></h1>
+					</div><br><br>
+					<h1 class="text-left"><small><?=$tit_pos?> </small></h1>
+					<h2 class="text-left"><small><?=$tit_com?> </small></h2>
+					<dl class="dl-horizontal text-left">
+						<dt><strong>Codigo :</strong></dt>
+						<dd><?=$cod_tour?></dd>
+
+						<dt><strong>Destinos :</strong></dt>
+						<dd>
+						<?php
+							//Destino
+							$dato_destino = "SELECT pagina.id_pagina ,destino.id_destino ,pagina.tit_pos_pagina ,pagina.url_pagina
+												FROM
+												((tour_destino LEFT JOIN destino ON tour_destino.id_destino = destino.id_destino)
+												LEFT JOIN pagina ON pagina.id_pagina = destino.id_pagina)
+												WHERE
+												tour_destino.id_tour='$id_tour'";
+
+							$dato_destino = mysql_db_query($dbname, $dato_destino); 
+							while ($row = mysql_fetch_array($dato_destino)){ 
+
+								$id_tourdest = $row["id_destino"];//id de los Destinos del Tour
+								$id_pag_dest = $row["id_pagina"];
+								$tit_pag_dest = $row["tit_pos_pagina"];
+
+								$url_pag = pagUrl($dbname,$id_pag_dest);$pagurl="";
+								$url_pag_dest = substr($url_pag, 0, -1);
+
+
+								$ids_dest=pagPadreDestino($dbname,$id_pag_dest);
+								$ids_dest = substr($ids_dest, 0, -1);
+
+								$des='';
+								$des_pad = "SELECT * FROM pagina WHERE id_pagina IN ($ids_dest)";
+								$des_pad = mysql_db_query($dbname, $des_pad); 
+								while ($row = mysql_fetch_array($des_pad)){ 
+
+										$tit_des = $row["tit_pos_pagina"];
+										$des=$des.$tit_des." » ";
+
+								} 
+								$pad_id='';
+								?>
+									<a href="/<?=$url_pag_dest?>" class="tooltip-test" title="<?=$des?>"><?=$tit_pag_dest?></a>, 
+								<?php
+
+								$ids_tour_dest = $ids_tour_dest.$id_tourdest.",";//ids de los Destinos del Tour
+							}
+							$ids_tour_dest = substr($ids_tour_dest, 0, -1); //id de los Destinos del Tour sin ,
+						?>
+						<br>
+						</dd>
+
+						<dt><strong>Opciones de Viaje :</strong></dt>
+						<dd>
+						<?php
+							//Opcion
+							$dato_opcion = "SELECT pagina.id_pagina ,opcion.id_opcion ,pagina.tit_pos_pagina ,pagina.url_pagina
+												FROM
+												((tour_opcion LEFT JOIN opcion ON tour_opcion.id_opcion = opcion.id_opcion)
+												LEFT JOIN pagina ON pagina.id_pagina = opcion.id_pagina)
+												WHERE
+												tour_opcion.id_tour='$id_tour'";
+
+							$dato_opcion = mysql_db_query($dbname, $dato_opcion); 
+							while ($row = mysql_fetch_array($dato_opcion)){ 
+
+								$id_pag_opc = $row["id_pagina"];
+								$tit_pag_opc = $row["tit_pos_pagina"];
+
+								$url_pag = pagUrl($dbname,$id_pag_opc);$pagurl="";
+								$url_pag_opc = substr($url_pag, 0, -1);
+								?>
+									<a href="/<?=$url_pag_opc?>"><?=$tit_pag_opc?></a>, 
+								<?php
+							}
+						?>
+						<br>
+						</dd>
+
+						<dt><strong>Duracion :</strong></dt>
+						<dd><?=$dur_dia_tour?> Días / <?=$dur_noc_tour?> Noches</dd>
+
+						<dt><strong>Dificultad :</strong></dt>
+						<dd><?=$dif_tour?></dd>
+
+						<dt><strong>Precio :</strong></dt>
+						<dd>
+						<?php
+
+							//Datos de los Precios de los Tours
+							$precio_tour = "SELECT per_tprecio, val_tprecio, ini_tprecio, fin_tprecio FROM tprecio WHERE id_tour='$id_tour' AND vis_tprecio='1' AND  ofe_tprecio='0' ORDER BY per_tprecio";
+							$precio_tour = mysql_db_query($dbname, $precio_tour); 
+							while ($row = mysql_fetch_array($precio_tour)){ 
+
+								
+								$per_pre_tour = $row["per_tprecio"];
+								$val_pre_tour = $row["val_tprecio"];
+								$ini_pre_tour = $row["ini_tprecio"];
+								$fin_pre_tour = $row["fin_tprecio"];
+							
+							?>
+								<p title="Vigencia: <?=$ini_pre_tour?> - <?=$fin_pre_tour?>">
+									<a class="tooltip-test" data-placement="right" title="Vigencia: <?=$ini_pre_tour?> - <?=$fin_pre_tour?>" ><small><?=$per_pre_tour?> personas  x <?=$val_pre_tour?> USD</small></a>
+								</p>
+
+							<?php 
+							}
+						?>
+						</dd>
+
+						<dt><strong>Oferta :</strong></dt>
+						<dd><br>
+						<?php
+
+							//Datos de las Ofertas de los Tours
+							$oferta_tour = "SELECT per_tprecio, val_tprecio, ini_tprecio, fin_tprecio FROM tprecio WHERE id_tour='$id_tour' AND vis_tprecio='1' AND  ofe_tprecio='1' ORDER BY per_tprecio";
+							$oferta_tour = mysql_db_query($dbname, $oferta_tour); 
+							while ($row = mysql_fetch_array($oferta_tour)){ 
+
+								
+								$per_tprecio = $row["per_tprecio"];
+								$val_tprecio = $row["val_tprecio"];
+								$ini_tprecio = $row["ini_tprecio"];
+								$fin_tprecio = $row["fin_tprecio"];
+							
+							?>
+								<p title="Vigencia: <?=$ini_tprecio?> - <?=$fin_tprecio?>">
+									<a class="tooltip-test" data-placement="right" title="Vigencia: <?=$ini_tprecio?> - <?=$fin_tprecio?>" ><small><?=$per_tprecio?> personas  x <?=$val_tprecio?> USD</small></a>
+								</p>
+
+							<?php 
+							}
+						?>
+						</dd>
+
+						<dt><strong>Agencia :</strong></dt>
+						<dd><a href="/<?=$url_pag_agen?>"><?=$tit_pag_agen?></a></dd>
+					</dl>
+					<br>
+					<h4 class="text-left">Descripcion :</h4>
+					<p class="text-justify"><?=$des_tour?></p>
+					<br>
+				</article>
+				<article class= "text-center">
+					<h4 class="text-left">Itinerario :</h4>
+					<div class="accordion text-justify">
+						<?php
+						//Datos de los dias del Itinerario del Tour
+						$dato_itinerario = "SELECT * FROM itinerario WHERE id_tour='$id_tour' ORDER BY ord_itinerario";
+						$dato_itinerario = mysql_db_query($dbname, $dato_itinerario); 
+						while ($row = mysql_fetch_array($dato_itinerario)){ 
+
+							$id_itinerario = $row["id_itinerario"];
+							$ord_itinerario = $row["ord_itinerario"];
+							$tit_pos_itinerario = $row["tit_pos_itinerario"];
+							$tit_com_itinerario = $row["tit_com_itinerario"];
+							$des_itinerario = $row["des_itinerario"];
+							$arch_ima_itinerario = $row["arch_ima_itinerario"];
+							$tit_ima_itinerario = $row["tit_ima_itinerario"];
+							$lug_ima_itinerario = $row["lug_ima_itinerario"];
+							$fec_ima_itinerario = $row["fec_ima_itinerario"];
+							$des_ima_itinerario = $row["des_ima_itinerario"];
+						?>
+							<div>
+								<h4><?=$tit_pos_itinerario?></h4>
+								<div>
+									<?php 
+										if (!empty($arch_ima_itinerario)) {
+										?>
+											<figure>
+												<img src="/image/<?=$arch_ima_itinerario?>" alt="<?=$tit_ima_itinerario?> - <?=$des_ima_itinerario?>" border="0" width="111" heigth="111" class="img-circle pull-left" itemprop="contentURL">
+												<meta itemprop="datePublished" content="<?=$fec_ima_itinerario?>">
+											</figure>
+										<?php
+										}
+									?>										
+									<h5><?=$tit_com_itinerario?></h5>
+									<p class="text-left">
+										<small>
+											<?php
+											//Lista de lo que Incluye en el Dia 
+											$serv=0;
+											$pos_pag_agen = "SELECT * FROM iservicio ORDER BY id_iservicio";
+											$posi_pag_agen = mysql_db_query($dbname, $pos_pag_agen); 
+											while ($row = mysql_fetch_array($posi_pag_agen)){ 
+												$serv++;
+												$id_iservicio = $row["id_iservicio"]; 
+												$nom_iservicio = $row["nom_iservicio"];
+												$des_iservicio = $row["des_iservicio"];
+
+												//que esta activo el lo que incluye
+												$activo_servicio = "SELECT act_iincluye FROM iincluye WHERE id_itinerario='$id_itinerario' AND id_iservicio='$id_iservicio'";
+												$activo_servicio = mysql_db_query($dbname, $activo_servicio); 
+												if ($row = mysql_fetch_array($activo_servicio)){ $act_servicio = $row["act_iincluye"]; }
+
+												if ($act_servicio==1) { $serv_act="ico-val_on"; $serv_incl="Incluido";} else { $serv_act="ico-val_off"; $serv_incl="No Incluido";}
+												?>
+													<i class="icon-<?=$nom_iservicio?>_itinerario <?=$serv_act?>" title="<?=$des_iservicio?>: <?=$serv_incl?>"></i>
+												<?php
+													$act_servicio=0;
+												}
+												?>
+										</small>
+									</p>
+									<p>
+										<?=$des_itinerario?>
+									</p>
+								</div>
+							</div>
+						<?php
+						}
+						?>
+					</div>
+				</article>
+				<hr class="span9">
+				<article>
+					<div class="text-center">
+
+							<?php
+							//Datos de la Galeria de Imagen
+							$datos_galeria_imagen = "SELECT *
+														FROM
+														((galeria LEFT JOIN galeria_imagen ON galeria.id_galeria = galeria_imagen.id_galeria)
+														LEFT JOIN imagen ON imagen.id_imagen = galeria_imagen.id_imagen)
+														WHERE galeria.id_pagina='$id'AND tipo_galeria='Fotografica'
+														ORDER BY ord_galeria_imagen";
+
+							$datos_galeria_imagen = mysql_db_query($dbname, $datos_galeria_imagen); 
+							while ($row = mysql_fetch_array($datos_galeria_imagen)){ 
+
+								$id_ima_galeria = $row["id_imagen"];
+								$ord_gal_imagen = $row["ord_galeria_imagen"];
+								
+								$arch_gal_imagen = $row["arch_imagen"];	
+								$tit_gal_imagen = $row["tit_imagen"];	
+								$lug_gal_imagen = $row["lug_imagen"];	
+								$des_gal_imagen = $row["des_imagen"];	
+								$fec_gal_imagen = $row["fec_imagen"];
+
+								?>
+								<div>
+									<img src="/image/<?=$arch_gal_imagen?>" alt="<?=$tit_gal_imagen." ".$lug_gal_imagen." ".$fec_gal_imagen?>">
+									<div>
+										<h4><?=$tit_gal_imagen?></h4>
+										<p><?=$des_gal_imagen?></p>
+									</div>
+								</div><br>
+							<?php
+								}
+							?>
+					</div>
+				</article>
+					<?php
+						if ($tipo_tour=="Grupal") {
+					?>
+						<article class="span8 text-center">
+							<table class="span7 table-hover">
+  								<caption>
+									<h4>Fechas de Salida</h4>
+									<small>
+										<p class="span2 inline-block text-left"><img class="ball verde"></img> Disponible </p>
+										<p class="span2 inline-block text-left"><img class="ball amarillo"></img> Pocos Lugares </p>
+										<p class="span2 inline-block text-left"><img class="ball ambar"></img> Solo un Lugar </p>
+										<p class="span2 inline-block text-left"><img class="ball rojo"></img> Agotado </p>
+										<p class="span2 inline-block text-left"><img class="ball guinda"></img> A peticion</p>
+									</small>
+									<br><br><br><br>
+  								</caption>
+								<thead>
+									<tr>
+										<th>Fecha de Salida</th>
+										<th>Estado</th>
+										<th>Fecha de Salida</th>
+										<th>Estado</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php
+									//columna
+									$col=1;
+
+									//Datos de los Precios de los Tours
+									$gen_pag = "SELECT * FROM salida WHERE id_tour='$id_tour' AND vis_salida='1' ORDER BY fec_salida";
+									$gene_pag = mysql_db_query($dbname, $gen_pag); 
+									while ($row = mysql_fetch_array($gene_pag)){ 
+
+										$fec_salida = $row["fec_salida"];
+										$cup_salida = $row["cup_salida"];
+										$ocu_salida = $row["ocu_salida"];
+										// $vis_salida = $row["vis_salida"];
+										$pet_salida = $row["pet_salida"];
+										$des_salida = $row["des_salida"];
+
+										$cant = $cup_salida - $ocu_salida;
+										$porc = $cant / $cup_salida;
+										// round(3.655551, 0);
+
+										if ($col == 1){ ?>	<tr> <?php } 
+
+									?>
+										<td><?=$fec_salida?></td>
+										<td>
+											<?php if ($porc>=0.3 && $cant!=1 && $cant!=0) { ?><p title="Disponible - <?=$des_salida?>"><a class="tooltip-test" title="Disponible - <?=$des_salida?>"><img class="ball verde"></img></a></p> <?php } ?> 
+											<?php if ($porc<0.3 && $cant!=1 && $cant!=0) { ?><p title="Disponible - <?=$des_salida?>"><a class="tooltip-test" title="Pocos Lugares - <?=$des_salida?>"><img class="ball amarillo"></img></a></p> <?php } ?> 
+											<?php if ($cant==1) { ?><p title="Disponible - <?=$des_salida?>"><a class="tooltip-test" title="Solo un Lugar - <?=$des_salida?>"><img class="ball ambar"></img></a></p> <?php } ?> 
+											<?php if ($cant==0 && $pet_salida!=1) { ?><p title="Disponible - <?=$des_salida?>"><a class="tooltip-test" title="Agotado - <?=$des_salida?>"><img class="ball rojo"></img></a></p> <?php } ?> 
+											<?php if ($cant==0 && $pet_salida==1) { ?><p title="Disponible - <?=$des_salida?>"><a class="tooltip-test" title="A peticion - <?=$des_salida?>"><img class="ball guinda"></img></a></p> <?php } ?> 
+										</td>
+									<?php 
+										if ($col == 2){ ?> </tr> <?php  $col = 0;}  
+										$col++; 
+
+									} if ($i != 2){ ?> </tr> <?php } ?>
+
+								</tbody>
+							</table>
+						</article>
+					<?php
+						}
+					?>
+				<br>
+				<hr class="span9">
+				<br>
+				<article class="text-left">
+					<div class="text-left span4 tour-tipo">
+						<h5 class="text-left"><a href="/tours"><i class="icon-tour"></i> Tours »</a></h5>
+						<ul class="text-left">
+							<?php
+								//Tours Similares
+								$dato_tours_similares = "SELECT DISTINCT tour.id_tour, tour.id_pagina
+															FROM
+															tour LEFT JOIN tour_destino ON tour.id_tour = tour_destino.id_tour
+															WHERE id_destino IN ($ids_tour_dest) AND tipo_tour='$tipo_tour' AND id_pagina<>'$id'
+															LIMIT 0, 3";
+
+								$dato_tours_similares = mysql_db_query($dbname, $dato_tours_similares); 
+								while ($row = mysql_fetch_array($dato_tours_similares)){ 
+
+									$id_tours = $row["id_tour"];
+									$id_pag_tours = $row["id_pagina"];
+
+									$dato_pag_tours = "SELECT tit_pos_pagina FROM pagina WHERE id_pagina=$id_pag_tours";
+									$dato_pag_tours = mysql_db_query($dbname, $dato_pag_tours); 
+									if ($row = mysql_fetch_array($dato_pag_tours)){ 
+
+										$tit_pag_tours = $row["tit_pos_pagina"];
+
+									} 
+
+									$url_pag = pagUrl($dbname,$id_pag_tours);$pagurl="";
+									$url_pag_tours = substr($url_pag, 0, -1);
+
+									?>
+										<li>
+											<a href="/<?=$url_pag_tours?>"><?=$tit_pag_tours?></a>
+										</li>
+									<?php
+								}
+							?>
+						</ul>
+					</div>
+					<div class="text-left span4 tour-tipo">
+						<h5 class="text-left"><a href="/souvenirs-regalos"><i class="icon-souvenir"></i> Souvenirs y Regalos »</a></h5>
+						<ul class="text-left">
+							<?php
+								//Souvenir del destino
+								$dato_souvenir = "SELECT DISTINCT id_pagina
+															FROM
+															souvenir
+															WHERE id_destino IN ($ids_tour_dest)
+															LIMIT 0, 3";
+
+								$dato_souvenir = mysql_db_query($dbname, $dato_souvenir); 
+								while ($row = mysql_fetch_array($dato_souvenir)){ 
+
+									$id_souvenirs = $row["id_souvenir"];
+									$id_pag_souvenirs = $row["id_pagina"];
+
+									$dato_pag_tours = "SELECT tit_pos_pagina FROM pagina WHERE id_pagina=$id_pag_souvenirs";
+									$dato_pag_tours = mysql_db_query($dbname, $dato_pag_tours); 
+									if ($row = mysql_fetch_array($dato_pag_tours)){ 
+
+										$tit_pag_souvenirs = $row["tit_pos_pagina"];
+
+									} 
+
+									$url_pag = pagUrl($dbname,$id_pag_souvenirs);$pagurl="";
+									$url_pag_souvenirs = substr($url_pag, 0, -1);
+
+									?>
+										<li>
+											<a href="/<?=$url_pag_souvenirs?>"><?=$tit_pag_souvenirs?></a>
+										</li>
+									<?php
+								}
+							?>
+						</ul>
+					</div>
+					<div class="text-left span4 tour-tipo">
+						<h5 class="text-left"><a href="/comidas-tipicas"><i class="icon-comida"></i> Comidas Tipicas »</a></h5>
+						<ul class="text-left">
+							<?php
+								//Comida Tipica del destino
+								$dato_tipica = "SELECT DISTINCT id_pagina
+															FROM
+															tipica
+															WHERE id_destino IN ($ids_tour_dest)
+															LIMIT 0, 3";
+
+								$dato_tipica = mysql_db_query($dbname, $dato_tipica); 
+								while ($row = mysql_fetch_array($dato_tipica)){ 
+
+									$id_tipicas = $row["id_tipica"];
+									$id_pag_tipicas = $row["id_pagina"];
+
+									$dato_pag_tours = "SELECT tit_pos_pagina FROM pagina WHERE id_pagina=$id_pag_tipicas";
+									$dato_pag_tours = mysql_db_query($dbname, $dato_pag_tours); 
+									if ($row = mysql_fetch_array($dato_pag_tours)){ 
+
+										$tit_pag_tipicas = $row["tit_pos_pagina"];
+
+									} 
+
+									$url_pag = pagUrl($dbname,$id_pag_tipicas);$pagurl="";
+									$url_pag_tipicas = substr($url_pag, 0, -1);
+
+									?>
+										<li>
+											<a href="/<?=$url_pag_tipicas?>"><?=$tit_pag_tipicas?></a>
+										</li>
+									<?php
+								}
+							?>
+						</ul>
+					</div>
+					<div class="text-left span4 tour-tipo">
+						<h5 class="text-left"><a href="/sitios-turisticos"><i class="icon-sitio"></i> Sitios Turisticos »</a></h5>
+						<ul class="text-left">
+							<?php
+								//Sitios Turisticos del destino
+								$dato_sitio = "SELECT DISTINCT id_pagina
+															FROM
+															sitio
+															WHERE id_destino IN ($ids_tour_dest)
+															LIMIT 0, 3";
+
+								$dato_sitio = mysql_db_query($dbname, $dato_sitio); 
+								while ($row = mysql_fetch_array($dato_sitio)){ 
+
+									$id_sitios = $row["id_sitio"];
+									$id_pag_sitios = $row["id_pagina"];
+
+									$dato_pag_sitios = "SELECT tit_pos_pagina FROM pagina WHERE id_pagina=$id_pag_sitios";
+									$dato_pag_sitios = mysql_db_query($dbname, $dato_pag_sitios); 
+									if ($row = mysql_fetch_array($dato_pag_sitios)){ 
+
+										$tit_pag_sitios = $row["tit_pos_pagina"];
+
+									} 
+
+									$url_pag = pagUrl($dbname,$id_pag_sitios);$pagurl="";
+									$url_pag_sitios = substr($url_pag, 0, -1);
+
+									?>
+										<li>
+											<a href="/<?=$url_pag_sitios?>"><?=$tit_pag_sitios?></a>
+										</li>
+									<?php
+								}
+							?>
+						</ul>
+					</div>
+					<div class="text-left span4 tour-tipo">
+						<h5 class="text-left"><a href="/alojamientos-hoteles"><i class="icon-hotel"></i> Alojamientos - Hoteles »</a></h5>
+						<ul class="text-left">
+							<?php
+								//Alojamiento - Hoteles del destino
+								$dato_alojamiento = "SELECT DISTINCT id_pagina
+															FROM
+															alojamiento
+															WHERE id_destino IN ($ids_tour_dest)
+															LIMIT 0, 3";
+
+								$dato_alojamiento = mysql_db_query($dbname, $dato_alojamiento); 
+								while ($row = mysql_fetch_array($dato_alojamiento)){ 
+
+									$id_alojamientos = $row["id_alojamiento"];
+									$id_pag_alojamientos = $row["id_pagina"];
+
+									$dato_pag_alojamientos = "SELECT tit_pos_pagina FROM pagina WHERE id_pagina=$id_pag_alojamientos";
+									$dato_pag_alojamientos = mysql_db_query($dbname, $dato_pag_alojamientos); 
+									if ($row = mysql_fetch_array($dato_pag_alojamientos)){ 
+
+										$tit_pag_alojamientos = $row["tit_pos_pagina"];
+
+									} 
+
+									$url_pag = pagUrl($dbname,$id_pag_alojamientos);$pagurl="";
+									$url_pag_alojamientos = substr($url_pag, 0, -1);
+
+									?>
+										<li>
+											<a href="/<?=$url_pag_alojamientos?>"><?=$tit_pag_alojamientos?></a>
+										</li>
+									<?php
+								}
+							?>
+						</ul>
+					</div>
+					<div class="text-left span4 tour-tipo">
+						<h5 class="text-left"><a href="/restaurantes"><i class="icon-restaurante"></i> Restaurantes »</a></h5>
+						<ul class="text-left">
+							<?php
+								//Restaurantes del destino
+								$dato_restaurante = "SELECT DISTINCT id_pagina
+															FROM
+															restaurante
+															WHERE id_destino IN ($ids_tour_dest)
+															LIMIT 0, 3";
+
+								$dato_restaurante = mysql_db_query($dbname, $dato_restaurante); 
+								while ($row = mysql_fetch_array($dato_restaurante)){ 
+
+									$id_restaurantes = $row["id_restaurante"];
+									$id_pag_restaurantes = $row["id_pagina"];
+
+									$dato_pag_restaurantes = "SELECT tit_pos_pagina FROM pagina WHERE id_pagina=$id_pag_restaurantes";
+									$dato_pag_restaurantes = mysql_db_query($dbname, $dato_pag_restaurantes); 
+									if ($row = mysql_fetch_array($dato_pag_restaurantes)){ 
+
+										$tit_pag_restaurantes = $row["tit_pos_pagina"];
+
+									} 
+
+									$url_pag = pagUrl($dbname,$id_pag_restaurantes);$pagurl="";
+									$url_pag_restaurantes = substr($url_pag, 0, -1);
+
+									?>
+										<li>
+											<a href="/<?=$url_pag_restaurantes?>"><?=$tit_pag_restaurantes?></a>
+										</li>
+									<?php
+								}
+							?>
+						</ul>
+					</div>
+					<div class="text-left span4 tour-tipo">
+						<h5 class="text-left"><a href="/tiendas"><i class="icon-tienda"></i> Tiendas »</a></h5>
+						<ul class="text-left">
+							<?php
+								//Tiendas del destino
+								$dato_tienda = "SELECT DISTINCT id_pagina
+															FROM
+															tienda
+															WHERE id_destino IN ($ids_tour_dest)
+															LIMIT 0, 3";
+
+								$dato_tienda = mysql_db_query($dbname, $dato_tienda); 
+								while ($row = mysql_fetch_array($dato_tienda)){ 
+
+									$id_tiendas = $row["id_tienda"];
+									$id_pag_tiendas = $row["id_pagina"];
+
+									$dato_pag_tiendas = "SELECT tit_pos_pagina FROM pagina WHERE id_pagina=$id_pag_tiendas";
+									$dato_pag_tiendas = mysql_db_query($dbname, $dato_pag_tiendas); 
+									if ($row = mysql_fetch_array($dato_pag_tiendas)){ 
+
+										$tit_pag_tiendas = $row["tit_pos_pagina"];
+
+									} 
+
+									$url_pag = pagUrl($dbname,$id_pag_tiendas);$pagurl="";
+									$url_pag_tiendas = substr($url_pag, 0, -1);
+
+									?>
+										<li>
+											<a href="/<?=$url_pag_tiendas?>"><?=$tit_pag_tiendas?></a>
+										</li>
+									<?php
+								}
+							?>
+						</ul>
+					</div>
+					<div class="text-left span4 tour-tipo">
+						<h5 class="text-left"><a href="/actividades-turisticas"><i class="icon-actividad"></i>  Actividades Turisticas »</a></h5>
+						<ul class="text-left">
+							<?php
+								//Actividades del destino
+								$dato_actividad = "SELECT DISTINCT id_pagina
+															FROM
+															actividad
+															WHERE id_destino IN ($ids_tour_dest)
+															LIMIT 0, 3";
+
+								$dato_actividad = mysql_db_query($dbname, $dato_actividad); 
+								while ($row = mysql_fetch_array($dato_actividad)){ 
+
+									$id_actividades = $row["id_actividad"];
+									$id_pag_actividades = $row["id_pagina"];
+
+									$dato_pag_actividades = "SELECT tit_pos_pagina FROM pagina WHERE id_pagina=$id_pag_actividades";
+									$dato_pag_actividades = mysql_db_query($dbname, $dato_pag_actividades); 
+									if ($row = mysql_fetch_array($dato_pag_actividades)){ 
+
+										$tit_pag_actividades = $row["tit_pos_pagina"];
+
+									} 
+
+									$url_pag = pagUrl($dbname,$id_pag_actividades);$pagurl="";
+									$url_pag_actividades = substr($url_pag, 0, -1);
+
+									?>
+										<li>
+											<a href="/<?=$url_pag_actividades?>"><?=$tit_pag_actividades?></a>
+										</li>
+									<?php
+								}
+							?>
+						</ul>
+					</div>				
+				</article>
+				<br>
+				<hr class="span9">
+				<br>
+				<article class="span9">
+					<p>
+						<strong>Contactanos:</strong><br>
+						<?php
+							//Info del Contacto
+							$dato_pagina = "SELECT * FROM info WHERE id_contacto='1' AND vis_info='1' ORDER BY ord_info";
+							$dato_pagina = mysql_db_query($dbname, $dato_pagina); 
+							while ($row = mysql_fetch_array($dato_pagina)){ 
+
+								$tipo_pie = $row["tipo_info"]; 
+								$dato_pie = $row["dato_info"]; 
+
+								switch ($tipo_pie) {
+									case 'Dirección':
+										?>
+										<small><strong><spam class="enlace-pie">Dirección:</spam></strong><?=$dato_pie?></small>
+										<?php
+										break;
+									case 'E-mail':
+										?>
+										<a class="enlace-pie" href="mailto:<?=$dato_pie?>" itemprop="url"><i class="icon-mail ico-ml"></i> <?=$dato_pie?></a><br>
+										<?php
+										break;
+									case 'Facebook':
+										?>
+										<a class="enlace-pie" href="<?=$dato_pie?>" itemprop="url"><i class="icon-facebook1 ico-fb"></i> Facebook</a><br>
+										<?php
+										# code...
+										break;
+									case 'Google+':
+										?>
+										<a class="enlace-pie" href="<?=$dato_pie?>" itemprop="url"><i class="icon-google ico-go"></i> Google+</a><br>
+										<?php
+										break;
+									case 'Instagram':
+										?>
+										<a class="enlace-pie" href="<?=$dato_pie?>" itemprop="url"><i class="icon-instagram ico-in"></i> Instagram</a><br>
+										<?php
+										break;
+									case 'Sitio Web':
+										?>
+										<a class="enlace-pie" href="<?=$dato_pie?>" itemprop="url"><small><?=$dato_pie?></small></a>
+										<?php
+										break;
+									case 'Skype':
+										?>
+										<a class="enlace-pie" href="skype:<?=$dato_pie?>?call" itemprop="url"><i class="icon-skype ico-sk"></i> Skype</a><br>
+										<?php
+										break;
+									case 'Telefono':
+										?>
+										<small><strong>Fono:</strong><?=$dato_pie?></small>
+										<?php
+										break;
+									case 'Twitter':
+										?>
+										<a class="enlace-pie" href="<?=$dato_pie?>" itemprop="url"><i class="icon-twitter1 ico-tw"></i> Twitter</a><br>
+										<?php
+										break;
+									case 'Youtube':
+										?>
+										<a class="enlace-pie" href="<?=$dato_pie?>" itemprop="url"><i class="icon-youtube ico-yt"></i> Youtube</a><br>
+										<?php
+										break;
+								}
+
+							}
+
+						?>
+					</p>
+				</article>
+			</div>
+		</section>
+
+	</body>
+</html>
+
+

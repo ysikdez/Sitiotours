@@ -1,0 +1,84 @@
+#Options +FollowSymlinks
+
+RewriteEngine On
+
+#Quita www
+RewriteCond %{HTTP_HOST} ^www.(.*) [NC]
+RewriteRule ^(.*) http://%1/$1 [R=301,L]
+
+#Home
+RewriteBase /
+
+#Paginas Principales
+Rewriterule ^([a-zA-Z0-9_-]+)$ index.php?id=$1
+
+#Tours
+Rewriterule ^tours/([a-zA-Z0-9_-]+)$ tours.php?id=$1
+Rewriterule ^tours/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ tour_detalle.php?tipo=$1&id=$2
+Rewriterule ^tours/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/imprimir$ imprimir_tour.php?tipo=$1&id=$2
+
+Rewriterule ^tours/([a-zA-Z0-9_-]+)/pagina-([0-9]+)$ tours_seccion.php?formu=$1&pag=$2
+Rewriterule ^tours/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/pagina-([0-9]+)$ tours_seccion.php?tipo=$1&formu=$2&pag=$3
+
+
+#Destinos
+Rewriterule ^destinos/([a-zA-Z0-9_-]+)$ destino_detalle.php?id=$1
+Rewriterule ^destinos/([a-zA-Z0-9_-]+)/imprimir$ imprimir_destino.php?id=$1
+
+Rewriterule ^destinos/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ destino_detalle.php?region=$1&id=$2
+Rewriterule ^destinos/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/imprimir$ imprimir_destino.php?region=$1&id=$2
+
+Rewriterule ^destinos/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ destino_detalle.php?region=$1&pais=$2&id=$3
+Rewriterule ^destinos/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/imprimir$ imprimir_destino.php?region=$1&pais=$2&id=$3
+
+Rewriterule ^destinos/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ destino_detalle.php?region=$1&pais=$2&ciudad=$3&id=$4
+Rewriterule ^destinos/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/imprimir$ imprimir_destino.php?region=$1&pais=$2&ciudad=$3&id=$4
+
+#Opciones de Viaje
+Rewriterule ^opciones-de-viaje/([a-zA-Z0-9_-]+)$ opcion_detalle.php?id=$1
+Rewriterule ^opciones-de-viaje/([a-zA-Z0-9_-]+)/imprimir$ imprimir_opcion.php?id=$1
+Rewriterule ^opciones-de-viaje/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/pagina-([0-9]+)$ opcion_seccion.php?tipo=$1&formu=$2&pag=$3
+
+#Agencias de Viaje
+Rewriterule ^agencias-de-viaje/([a-zA-Z0-9_-]+)$ agencia_detalle.php?id=$1
+Rewriterule ^agencias-de-viaje/([a-zA-Z0-9_-]+)/imprimir$ imprimir_agencia.php?id=$1
+Rewriterule ^agencias-de-viaje/([a-zA-Z0-9_-]+)/pagina-([0-9]+)$ agencia_seccion.php?&formu=$1&pag=$2
+
+#Alojamiento - Hoteles
+Rewriterule ^alojamientos-hoteles/([a-zA-Z0-9_-]+)$ alojamiento_detalle.php?id=$1
+Rewriterule ^alojamientos-hoteles/([a-zA-Z0-9_-]+)/imprimir$ imprimir_alojamiento.php?id=$1
+Rewriterule ^alojamientos-hoteles/([a-zA-Z0-9_-]+)/pagina-([0-9]+)$ alojamiento_seccion.php?formu=$1&pag=$2
+
+#Restaurantes
+Rewriterule ^restaurantes/([a-zA-Z0-9_-]+)$ restaurante_detalle.php?id=$1
+Rewriterule ^restaurantes/([a-zA-Z0-9_-]+)/imprimir$ imprimir_restaurante.php?id=$1
+Rewriterule ^restaurantes/([a-zA-Z0-9_-]+)/pagina-([0-9]+)$ restaurante_seccion.php?formu=$1&pag=$2
+
+#Tiendas
+Rewriterule ^tiendas/([a-zA-Z0-9_-]+)$ tienda_detalle.php?id=$1
+Rewriterule ^tiendas/([a-zA-Z0-9_-]+)/imprimir$ imprimir_tienda.php?id=$1
+Rewriterule ^tiendas/([a-zA-Z0-9_-]+)/pagina-([0-9]+)$ tienda_seccion.php?formu=$1&pag=$2
+
+#Souvenirs - Regalos
+Rewriterule ^souvenirs-regalos/([a-zA-Z0-9_-]+)$ souvenir_detalle.php?id=$1
+Rewriterule ^souvenirs-regalos/([a-zA-Z0-9_-]+)/imprimir$ imprimir_souvenir.php?id=$1
+Rewriterule ^souvenirs-regalos/([a-zA-Z0-9_-]+)/pagina-([0-9]+)$ souvenir_seccion.php?formu=$1&pag=$2
+
+#Sitios - Turisticos
+Rewriterule ^sitios-turisticos/([a-zA-Z0-9_-]+)$ sitio_detalle.php?id=$1
+Rewriterule ^sitios-turisticos/([a-zA-Z0-9_-]+)/imprimir$ imprimir_sitio.php?id=$1
+Rewriterule ^sitios-turisticos/([a-zA-Z0-9_-]+)/pagina-([0-9]+)$ sitio_seccion.php?formu=$1&pag=$2
+
+#Actividades Turisticas
+Rewriterule ^actividades-turisticas/([a-zA-Z0-9_-]+)$ actividad_detalle.php?id=$1
+Rewriterule ^actividades-turisticas/([a-zA-Z0-9_-]+)/imprimir$ imprimir_actividad.php?id=$1
+Rewriterule ^actividades-turisticas/([a-zA-Z0-9_-]+)/pagina-([0-9]+)$ actividad_seccion.php?formu=$1&pag=$2
+
+#Recomendaciones - Tips Turisticos
+Rewriterule ^recomendaciones-tips-turisticos/([a-zA-Z0-9_-]+)$ recomendacion_detalle.php?id=$1
+Rewriterule ^recomendaciones-tips-turisticos/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/pagina-([0-9]+)$ recomendacion_seccion.php?tipo=$1&formu=$2&pag=$3
+
+ 
+
+
+
